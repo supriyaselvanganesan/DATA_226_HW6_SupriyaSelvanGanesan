@@ -73,7 +73,7 @@ def run_ctas(schema, table, select_sql, primary_key=None):
 
 with DAG(
     dag_id = 'BuildSummary',
-    start_date = datetime(2024,10,22),
+    start_date = datetime(2025,10,22),
     catchup=False,
     tags=['ELT'],
     schedule = '45 2 * * *'
