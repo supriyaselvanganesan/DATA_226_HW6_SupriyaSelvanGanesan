@@ -17,14 +17,10 @@ def snowflake_conn():
 @task
 def run_ctas(schema, table, select_sql, primary_key=None):
 
-    logging.info(table)
-    logging.info(select_sql)
-
     cur = snowflake_conn()
 
     try:
         sql = f"CREATE OR REPLACE TABLE {schema}.temp_{table} AS {select_sql}"
-        logging.info(sql)
         cur.execute(sql)
 
         #primary key uniquess check
